@@ -1,6 +1,9 @@
 name: push to gcp
 run-name: push to gcp
 on: [push, workflow_dispatch]
+env:
+  REPO_DIR: /tmp/repo
+  REPO_NAME: test-repo
 permissions:
   contents: write
 jobs:
@@ -9,11 +12,11 @@ jobs:
     steps:
       - name: clone
         run: |
-          rm -rf /tmp/repo
-          mkdir -p /tmp/repo
-          cd /tmp/repo
+          rm -rf $REPO_DIR
+          mkdir -p $REPO_DIR
+          cd $REPO_DIR
           git clone https://github.com/thiago-a-souza/test-repo.git
       - name: push repo
         run: |
-          cd /tmp/repo/Docker
+          cd $REPO_DIR/$REPO_NAME
           git push --mirror ssh://thi.alex@gmail.com@source.developers.google.com:2022/p/project-nl-330414/r/my-repo
