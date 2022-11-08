@@ -1,6 +1,6 @@
 name: clone-push-workflow
 run-name: clone-push-workflow
-on: [push, workflow_dispatch]
+on: [workflow_dispatch]
 jobs:
   build:
     runs-on: ubuntu-latest
