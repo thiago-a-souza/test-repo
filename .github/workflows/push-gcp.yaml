@@ -7,20 +7,13 @@ jobs:
   build:
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v3  
-        with:
-          #repository: thiago-a-souza/Docker.git
-          ref: 'master'    
-      - name:
-        run:
-          find .
-#      - name: clone
-#        run: |
-#          rm -rf /tmp/repo
-#          mkdir -p /tmp/repo
-#          cd /tmp/repo
-#          git clone https://github.com/thiago-a-souza/Docker.git
-#      - name: push repo
-#        run: |
-#          cd /tmp/repo/Docker
-#          git push --mirror ssh://thi.alex@gmail.com@source.developers.google.com:2022/p/project-nl-330414/r/my-repo
+      - name: clone
+        run: |
+          rm -rf /tmp/repo
+          mkdir -p /tmp/repo
+          cd /tmp/repo
+          git clone https://github.com/thiago-a-souza/test-repo.git
+      - name: push repo
+        run: |
+          cd /tmp/repo/Docker
+          git push --mirror ssh://thi.alex@gmail.com@source.developers.google.com:2022/p/project-nl-330414/r/my-repo
